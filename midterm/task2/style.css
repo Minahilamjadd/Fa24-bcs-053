@@ -1,0 +1,409 @@
+/* COUGAR – custom styles on top of Bootstrap 5 */
+:root {
+  --ink: #111;
+  --muted: #666;
+  --sale: #e5262e;
+  --line: #e6e6e6;
+  --bg-soft: #f6f4ef;
+}
+
+body {
+  font-family: "Montserrat", Arial, sans-serif;
+  color: var(--ink);
+  background: #fff;
+}
+
+/* ---------- Announcement bar ---------- */
+.announce {
+  background: #000;
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 600;
+  text-align: center;
+  padding: .55rem 1rem;
+}
+
+/* ---------- Header / navbar ---------- */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+}
+.site-header .navbar { padding: 0; min-height: 72px; }
+
+.brand {
+  font-family: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: .04em;
+  line-height: 1;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand:hover { color: var(--ink); }
+
+.nav-main .nav-link {
+  font-size: .82rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  padding: 1.6rem .9rem;
+}
+.nav-main .nav-link.sale { color: var(--sale); }
+.nav-main .nav-link:hover,
+.nav-main .nav-link.show { text-decoration: underline; text-underline-offset: 6px; }
+
+.nav-icons a {
+  color: var(--ink);
+  font-size: 1.25rem;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+.cart-badge {
+  font-size: .6rem;
+  position: relative;
+  top: -10px;
+  left: -4px;
+}
+
+/* ---------- Mega menu (Bootstrap dropdown, full width on desktop) ---------- */
+@media (min-width: 992px) {
+  .navbar .nav-item.mega { position: static; }
+  .navbar .mega-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    border: 0;
+    border-radius: 0;
+    padding: 1.5rem 2rem 2rem;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, .12);
+  }
+  .navbar .nav-item.mega:hover > .mega-menu { display: block; }
+}
+.mega-menu h6 {
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.mega-menu ul { list-style: none; padding: 0; margin: 0; }
+.mega-menu li a {
+  display: block;
+  padding: .32rem 0;
+  font-size: .78rem;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: #333;
+  text-decoration: none;
+}
+.mega-menu li a:hover { text-decoration: underline; }
+.mega-menu .new-link { font-weight: 700; }
+.mega-menu .tag-new { font-size: .6rem; color: var(--sale); margin-left: .3rem; }
+.mega-promo {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* ---------- Section headings ---------- */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 3rem 0 1.75rem;
+}
+
+/* ---------- Product cards ---------- */
+.product-card { border: 0; background: transparent; }
+.product-card .thumb {
+  position: relative;
+  background: var(--bg-soft);
+  overflow: hidden;
+}
+.product-card .thumb img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+.product-card:hover .thumb img { transform: scale(1.04); }
+.badge-sale {
+  position: absolute;
+  top: .6rem;
+  left: .6rem;
+  background: var(--sale);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  padding: .25rem .5rem;
+}
+.product-card .name {
+  font-size: .85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+  margin: .8rem 0 .2rem;
+}
+.product-card .name a { color: inherit; text-decoration: none; }
+.price { font-size: .9rem; font-weight: 600; }
+.price del { color: var(--muted); font-weight: 400; margin-right: .4rem; }
+.price .now { color: var(--sale); }
+
+.btn-cart {
+  background: var(--ink);
+  color: #fff;
+  border-radius: 0;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .65rem 1rem;
+}
+.btn-cart:hover { background: #333; color: #fff; }
+
+/* ---------- Category banners ---------- */
+.cat-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  color: #fff;
+  text-decoration: none;
+}
+.cat-tile img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.cat-tile span {
+  position: absolute;
+  left: 1.2rem;
+  bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+/* ---------- Product detail page ---------- */
+.breadcrumb { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; }
+.pd-main img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--bg-soft); }
+.pd-thumbs img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+}
+.pd-title { font-size: 1.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; }
+.pd-price { font-size: 1.3rem; font-weight: 600; }
+.size-options .btn {
+  border-radius: 0;
+  font-size: .8rem;
+  font-weight: 600;
+  min-width: 3rem;
+}
+.qty-group { max-width: 140px; }
+.qty-group .form-control { text-align: center; border-radius: 0; }
+.qty-group .btn { border-radius: 0; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: #111; color: #cfcfcf; margin-top: 4rem; padding: 3.5rem 0 1.5rem; }
+.site-footer h6 {
+  color: #fff;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.site-footer ul { 
+  list-style: none; padding: 0; margin: 0; }
+.site-footer li { 
+  margin-bottom: .5rem; }
+.site-footer a { 
+  color: #cfcfcf; text-decoration: none; font-size: .85rem; }
+.site-footer a:hover { 
+  color: #fff; text-decoration: underline; }
+.site-footer .brand { 
+  color: #fff; font-size: 2rem; }
+.footer-bottom { 
+  border-top: 1px solid #2a2a2a; margin-top: 2rem; padding-top: 1.2rem; font-size: .75rem; color: #888; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 991.98px) {
+  .nav-main .nav-link { padding: .8rem 0; }
+  .brand { font-size: 2rem; }
+  .hero { height: 65vh; }
+}
+@media (max-width: 575.98px) {
+  .hero { height: 55vh; }
+  .hero-tabs { bottom: 1rem; gap: 1.2rem; }
+  .section-title { margin: 2rem 0 1.2rem; font-size: 1.1rem; }
+  .pd-title { font-size: 1.3rem; }
+}
+
+/* ---------- Centered logo on desktop (flex, no absolute positioning) ---------- */
+@media (min-width: 992px) {
+  .site-header .navbar-collapse { flex: 1 1 0; }
+  .site-header .nav-icons { flex: 1 1 0; justify-content: flex-end; }
+  .site-header .brand { flex: 0 0 auto; }
+}
+
+/* ---------- Listing pages (sale / men / women / kids) ---------- */
+.list-bar { 
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; padding: 1.2rem 0 1rem; font-size: .8rem; letter-spacing: .04em; }
+.list-tabs a { 
+  color: #888; text-decoration: none; margin-right: 1rem; padding-bottom: 2px; }
+.list-tabs a.active { 
+  color: var(--ink); font-weight: 700; border-bottom: 2px solid var(--ink); }
+.list-tools { 
+  color: #777; display: flex; gap: 1.2rem; align-items: center; }
+.list-tools .views a { 
+  color: #777; text-decoration: none; margin-left: .4rem; }
+.list-tools .views a.active { 
+  color: var(--ink); font-weight: 700; }
+
+.listing-card .bars { position: absolute; top: .5rem; left: .5rem; right: .5rem; display: flex; gap: 6px; z-index: 2; }
+.listing-card .bars i { flex: 1; height: 2px; background: #cfcfcf; }
+.listing-card .bars i:first-child { background: var(--ink); }
+.listing-card .sizes { display: flex; justify-content: center; gap: 1.2rem; font-size: .7rem; padding: .7rem 0 .3rem; }
+.listing-card .meta { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-top: .4rem; }
+.listing-card .meta .name { margin: 0; font-size: .78rem; font-weight: 500; }
+.swatches { display: inline-flex; gap: 4px; margin-left: .5rem; vertical-align: middle; }
+.swatches span { width: 14px; height: 14px; border: 1px solid #ddd; display: inline-block; }
+.listing-card .price-row { font-size: .8rem; margin: .6rem 0 .8rem; }
+.listing-card .price-row del { color: #888; margin-right: .5rem; }
+.off-badge { background: #000; color: #fff; font-size: .75rem; font-weight: 600; padding: .25rem .5rem; }
+
+.page-heading { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 500; text-transform: uppercase; text-align: center; margin: 3rem 0 1.5rem; }
+.cat-strip { display: flex; gap: 12px; overflow-x: auto; padding-bottom: .5rem; scroll-snap-type: x mandatory; }
+.cat-strip a { flex: 0 0 calc(100% / 2.2); scroll-snap-align: start; text-align: center; color: var(--ink); text-decoration: none; font-size: .8rem; text-transform: uppercase; }
+.cat-strip img { width: 100%; aspect-ratio: 1; object-fit: cover; background: #efefef; margin-bottom: .6rem; }
+@media (min-width: 768px) { .cat-strip a { flex-basis: calc(100% / 4.2); } }
+@media (min-width: 1200px) { .cat-strip a { flex-basis: calc(100% / 6.2); } }
+.collection-banner img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; }
+.nav-main .nav-link.current { text-decoration: underline; text-underline-offset: 6px; }
+@media (min-width: 768px) { .collection-banner img { aspect-ratio: 16 / 10; } }
+
+/* =====================================================================
+   SINGLE-FILE HOME: landing animation  <->  item pages (CSS :target)
+   ===================================================================== */
+.announce { height: 36px; display: flex; align-items: center; justify-content: center; white-space: nowrap; overflow: hidden; padding: 0 .5rem; }
+@media (max-width: 575.98px) { .announce { font-size: .66rem; } }
+
+/* item pages: hidden unless targeted (#sale, #men, #women, #kids, #accessories) */
+.listing { display: none; }
+.listing:target { display: block; }
+.site-footer a:not([href]), .list-tools a:not([href]), .nav-icons a:not([href]) { cursor: pointer; }
+
+/* landing state = no item page targeted */
+body.is-home:not(:has(.listing:target)) { overflow: hidden; height: 100vh; height: 100dvh; }
+body.is-home:not(:has(.listing:target)) .site-footer { display: none; }
+body.is-home:has(.listing:target) .landing { display: none; }
+
+.landing { position: relative; height: calc(100vh - 36px); height: calc(100dvh - 36px); overflow: hidden; background: #222; }
+.landing .slide {
+  position: absolute; inset: 0; display: block; z-index: 0; opacity: 0;
+  background-size: cover; background-position: center; color: #fff; text-decoration: none;
+  animation: slideFade 12s infinite;
+}
+.landing .s1 { animation-delay: 0s; }
+.landing .s2 { animation-delay: 4s; }
+.landing .s3 { animation-delay: 8s; }
+@keyframes slideFade {
+  0%   { opacity: 0; z-index: 0; }
+  6%   { opacity: 1; z-index: 1; }
+  33%  { opacity: 1; z-index: 1; }
+  40%  { opacity: 0; z-index: 0; }
+  100% { opacity: 0; z-index: 0; }
+}
+.landing .caption { position: absolute; top: 50%; transform: translateY(-40%); display: flex; flex-direction: column; text-shadow: 0 2px 12px rgba(0,0,0,.35); }
+.landing .caption-right { left: 53%; }
+.landing .caption-left { left: 12%; }
+.landing .caption b { font-size: clamp(2.2rem, 7vw, 5.5rem); font-weight: 700; line-height: 1.05; }
+.landing .caption b.gold { color: #f2c230; font-size: clamp(1.8rem, 5.5vw, 4.4rem); }
+.landing .caption small { font-size: clamp(1rem, 2.6vw, 1.9rem); margin-top: .6rem; font-weight: 500; }
+@media (max-width: 767.98px) { .landing .caption-right, .landing .caption-left { left: 8%; } }
+
+.hero-tabs { position: absolute; left: 0; right: 0; bottom: 2rem; z-index: 5; display: flex; justify-content: center; gap: clamp(1.5rem, 6vw, 5rem); }
+.hero-tabs a { color: #fff; font-size: .85rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; text-decoration: none; text-shadow: 0 1px 6px rgba(0,0,0,.6); opacity: .6; animation: tabGlow 12s infinite; }
+.hero-tabs .t1 { animation-delay: 0s; } .hero-tabs .t2 { animation-delay: 4s; } .hero-tabs .t3 { animation-delay: 8s; }
+.hero-tabs a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 6px; }
+@keyframes tabGlow { 0% { opacity: .6; } 6% { opacity: 1; } 33% { opacity: 1; } 40% { opacity: .6; } 100% { opacity: .6; } }
+
+/* transparent header floating over the animation (like the reference) */
+body.is-home:not(:has(.listing:target)) .site-header { position: absolute; top: 36px; left: 0; right: 0; background: transparent; border-bottom: 0; }
+body.is-home:not(:has(.listing:target)) .nav-main .nav-link,
+body.is-home:not(:has(.listing:target)) .brand,
+body.is-home:not(:has(.listing:target)) .nav-icons a { color: #fff; }
+body.is-home:not(:has(.listing:target)) .nav-main .nav-link.sale { color: #ff3b43; }
+body.is-home:not(:has(.listing:target)) .navbar-toggler-icon { filter: invert(1); }
+@media (max-width: 991.98px) {
+  body.is-home:not(:has(.listing:target)) .navbar-collapse { background: rgba(0,0,0,.78); padding: .5rem 1rem; }
+  .mega-menu { display: none !important; }   /* phones: simple links, each opens its item page */
+}
+.page-heading { scroll-margin-top: 90px; }
+
+/* =====================================================================
+   TASK 1: Mega Menu & Mobile Accordion (BP = 992px)
+   ===================================================================== */
+@media (min-width: 992px) {
+  .shop-by-category { position: static; }
+  .shop-by-category .shop-cat-panel {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 99999;
+    box-shadow: 0 12px 24px rgba(0,0,0,.15);
+    padding: 2rem;
+  }
+  /* Opens via hover or keyboard focus-within, stays open across transition */
+  .shop-by-category:hover .shop-cat-panel,
+  .shop-by-category:focus-within .shop-cat-panel {
+    display: block;
+  }
+  .mobile-shop-accordion { display: none !important; }
+}
+
+@media (max-width: 991.98px) {
+  .shop-cat-panel { display: none !important; }
+  .mobile-shop-accordion details {
+    background: #f9f9f9;
+    margin: .5rem 0;
+    padding: .5rem;
+    border: 1px solid #ddd;
+  }
+  .mobile-shop-accordion summary {
+    font-weight: 700;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: .82rem;
+  }
+  .mobile-shop-accordion h6 {
+    font-size: .8rem;
+    font-weight: 700;
+    margin-top: .8rem;
+    text-transform: uppercase;
+  }
+  .mobile-shop-accordion ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0 0 .5rem 0;
+  }
+  .mobile-shop-accordion li a {
+    font-size: .78rem;
+    color: #333;
+    text-decoration: none;
+    display: block;
+    padding: .2rem 0;
+  }
+}
