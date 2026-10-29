@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Checkout | COUGAR</title>
+  <link href="../vendor/bootstrap.min.css" rel="stylesheet">
+  <link href="../vendor/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+  <style>
+    /* Task 2: Form Layout & HTML5 Validation styling */
+    .checkout-container { max-width: 900px; margin: 3rem auto; padding: 0 1rem; }
+    .checkout-form fieldset {
+      border: 1px solid #e6e6e6;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: #faf9f6;
+    }
+    .checkout-form legend {
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 0 .5rem;
+      width: auto;
+    }
+    .form-group-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+    /* From BP (992px) and wider: two fieldsets side by side, labels left-aligned via grid */
+    @media (min-width: 992px) {
+      .checkout-form .fieldsets-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .form-group-grid {
+        grid-template-columns: 130px 1fr;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
+    /* HTML5 Validation: Red border and message only after user interaction (:user-invalid) */
+    .checkout-form input:user-invalid,
+    .checkout-form select:user-invalid {
+      border-color: #e5262e !important;
+    }
+    .error-msg {
+      display: none;
+      color: #e5262e;
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+    }
+    .checkout-form input:user-invalid ~ .error-msg,
+    .checkout-form select:user-invalid ~ .error-msg {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-3 px-lg-4">
+      <a class="brand mx-auto" href="../index.html">COUGAR</a>
+    </div>
+  </nav>
+</header>
+
+<main class="checkout-container">
+  <h1 class="page-heading">Secure Checkout</h1>
+  <form class="checkout-form" action="#" method="POST">
+    <div class="fieldsets-wrapper">
+      
+      <!-- Contact Fieldset -->
+      <fieldset>
+        <legend>Contact</legend>
+        
+        <div class="form-group-grid">
+          <label for="fullname">Full Name</label>
+          <div>
+            <input type="text" id="fullname" name="fullname" class="form-control rounded-0" required placeholder="John Doe">
+            <div class="error-msg">Please enter your full name.</div>
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <label for="email">Email</label>
+          <div>
+            <input type="email" id="email" name="email" class="form-control rounded-0" required placeholder="john@example.com">
+            <div class="error-msg">Please enter a valid email address.</div>
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <label for="phone">Phone</label>
+          <div>
+            <!-- Pattern restricts format strictly to 03XX-XXXXXXX -->
+            <input type="tel" id="phone" name="phone" class="form-control rounded-0" required pattern="03[0-9]{2}-[0-9]{7}" placeholder="03XX-XXXXXXX">
+            <div class="error-msg">Phone format must be 03XX-XXXXXXX.</div>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Delivery Fieldset -->
+      <fieldset>
+        <legend>Delivery</legend>
+        
+        <div class="form-group-grid">
+          <label for="address">Address</label>
+          <div>
+            <input type="text" id="address" name="address" class="form-control rounded-0" required placeholder="Street address">
+            <div class="error-msg">Please enter your delivery address.</div>
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <label for="city">City</label>
+          <div>
+            <select id="city" name="city" class="form-control rounded-0" required>
+              <option value="">Select City</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Faisalabad">Faisalabad</option>
+            </select>
+            <div class="error-msg">Please select your city.</div>
+          </div>
+        </div>
+
+        <div class="form-group-grid">
+          <label for="delivery-date">Delivery Date</label>
+          <div>
+            <!-- min is exam date (2026-10-29), max is N=5 days after (2026-11-03) -->
+            <input type="date" id="delivery-date" name="delivery_date" class="form-control rounded-0" required min="2026-10-29" max="2026-11-03">
+            <div class="error-msg">Date must be between today and 5 days from now.</div>
+          </div>
+        </div>
+      </fieldset>
+
+    </div>
+
+    <button type="submit" class="btn btn-dark rounded-0 w-100 py-3 text-uppercase fw-bold">Place Order</button>
+  </form>
+</main>
+
+<footer class="site-footer">
+  <div class="container-xl text-center">
+    <span class="small">&copy; 2026 COUGAR. Fictional store for coursework.</span>
+  </div>
+</footer>
+</body>
+</html>
